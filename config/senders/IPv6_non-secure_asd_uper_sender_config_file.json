@@ -1,0 +1,35 @@
+{
+   "source":{
+      "file": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/messages/IPv6_non-secure_asd.uper",
+      "type":"UPER",
+	  "delay":500
+   },
+   "destination":{
+      "host":"sdw6-2.connectedvcs.com",
+      "sendPort":46755,
+	  "recvPort":50024,
+	  "fromPort":50025
+   },
+   "other":{
+      "verbose":false
+   },
+   "dialog":{
+      "group": "279986176",
+      "type": "advSitDataDep",
+	  "custom":{
+		"ttl":1
+	  }
+   },
+   "request":{
+      "timeout":4000,
+      "attempts":3,
+      "ignore":false
+   },
+   "resend":{
+      "timeout":4000,
+      "attempts":3,
+      "delay":200,
+      "recvPort":50026,
+	  "fromPort":50027
+   }
+}

@@ -1,0 +1,288 @@
+This application is driven by the JSON configuration file located at config/activity_monitor_config.json.  An example is given below
+with a description for each field.  Contact the Warehouse team if you have questions regarding the
+correct values for any of these fields.
+
+{
+	"systemName" : "CV System Name",
+	"senders" : [
+		{
+			"sender" : {
+				"frequency" : 60000,
+				"senderConfig" : "/path/to/IPv4_non-secure_asd_uper_sender_config_file.json",
+				"ipType" : "ipv4",
+				"secure" : false,
+				"messageType" : "vsd",
+				"targetWarehouse" : "all"
+			}
+		},
+		{
+			"sender" : {
+				"frequency" : 60000,
+				"senderConfig" : "/path/to/IPv4_secure_vsd_uper_sender_config_file.json",
+				"ipType" : "ipv4",
+				"secure" : true,
+				"messageType" : "vsd",
+				"targetWarehouse" : "all"
+			}
+		},
+		{
+			"sender" : {
+				"frequency" : 60000,
+				"senderConfig" : "/path/to/IPv6_non-secure_vsd_uper_sender_config_file.json",
+				"ipType" : "ipv6",
+				"secure" : false,
+				"messageType" : "vsd",
+				"targetWarehouse" : "all"
+			}
+		},
+		{
+			"sender" : {
+				"frequency" : 60000,
+				"senderConfig" : "/path/to/IPv6_secure_vsd_uper_sender_config_file.json",
+				"ipType" : "ipv6",
+				"secure" : true,
+				"messageType" : "vsd",
+				"targetWarehouse" : "all"
+			}
+		}
+	],
+
+	"monitorConfig" : {
+		"warehouseConfig" : "/path/to/warehouseConfig.json"
+		"subscriptions" : [
+			{
+				"subscription" : {
+					"subscription" : {
+						"sendToHost" : "10.152.193.227",
+						"sendToPort" : 46751,
+						"replyToPort" : 50051,
+						"serviceRegion": {
+							"nw": {
+								"lat": 28.049,
+								"lon": -81.653
+							},
+							"se": {
+								"lat": 28.047,
+								"lon": -81.651
+							}
+						},
+						"vsmTypeValue" : 4,
+						"endInMinutes" :  3,
+						"verbose": true,
+						"timeout": 3000,
+						"attempts": 3,
+					},
+					"interval" : 40000,
+					"ipType" : "ipv4",
+					"secure" : false
+				}
+			},
+			{
+				"subscription" : {
+					"subscription" : {
+						"sendToHost" : "10.152.193.227",
+						"sendToPort" : 46751,
+						"replyToPort" : 50051,
+						"serviceRegion": {
+							"nw": {
+								"lat": 28.049,
+								"lon": -81.653
+							},
+							"se": {
+								"lat": 28.047,
+								"lon": -81.651
+							}
+						},
+						"vsmTypeValue" : 4,
+						"endInMinutes" :  3,
+						"verbose": true,
+						"timeout": 3000,
+						"attempts": 3,
+						"certs": [
+							{
+								"cert": {
+									"name": "CA",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/root_ca.cert"
+								}
+							},
+							{
+								"cert": {
+									"name": "RA",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/root_ra.cert"
+								}
+							},
+							{
+								"cert": {
+									"name": "Self",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/SDW20160101.crt",
+									"key": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/DWH/DWH2016/SDW_decrypt_key.txt"
+								}
+							}
+						]
+					},
+					"interval" : 40000,
+					"ipType" : "ipv4",
+					"secure" : true
+				}
+			},
+			{
+				"subscription" : {
+					"subscription" : {
+						"sendToHost" : "10.152.193.227",
+						"sendToPort" : 46751,
+						"replyToPort" : 50051,
+						"serviceRegion": {
+							"nw": {
+								"lat": 28.049,
+								"lon": -81.653
+							},
+							"se": {
+								"lat": 28.047,
+								"lon": -81.651
+							}
+						},
+						"vsmTypeValue" : 4,
+						"endInMinutes" :  3,
+						"verbose": true,
+						"timeout": 3000,
+						"attempts": 3,
+					},
+					"interval" : 40000,
+					"ipType" : "ipv6",
+					"secure" : false
+				}
+			},
+			{
+				"subscription" : {
+					"subscription" : {
+						"sendToHost" : "10.152.193.227",
+						"sendToPort" : 46751,
+						"replyToPort" : 50051,
+						"serviceRegion": {
+							"nw": {
+								"lat": 28.049,
+								"lon": -81.653
+							},
+							"se": {
+								"lat": 28.047,
+								"lon": -81.651
+							}
+						},
+						"vsmTypeValue" : 4,
+						"endInMinutes" :  3,
+						"verbose": true,
+						"timeout": 3000,
+						"attempts": 3,
+						"certs": [
+							{
+								"cert": {
+									"name": "CA",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/root_ca.cert"
+								}
+							},
+							{
+								"cert": {
+									"name": "RA",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/root_ra.cert"
+								}
+							},
+							{
+								"cert": {
+									"name": "Self",
+									"path": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/BB/SDW20160101.crt",
+									"key": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/certs/DWH/DWH2016/SDW_decrypt_key.txt"
+								}
+							}
+						]
+					},
+					"interval" : 40000,
+					"ipType" : "ipv6",
+					"secure" : true
+				}
+			}
+		],
+		"queryFrequency" : 60000,
+		"failureTolerance" : 3,
+		"alertEmails" : [ "email1@email.com", "email2@email.com" ],
+		"recoveryEmails" : [ "email1@email.com" ],
+		"heartbeat" : {
+			"heartbeatEmails" : [ "email1@email.com" ],
+			"initialHeartbeat" : "12:00",
+			"frequencyInHours" : 12
+		}
+	},
+	
+	"uptimeConfig" : {
+		"databasePath": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/uptime/uptimedb",
+		"databasePort": 8161,
+		"updateIntervalInMinutes" : 30,
+		
+		"reporter" : {
+			"reportLocation" : "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/reporter/reports",
+			"reportEmails" : [ ]
+		}
+	}
+}
+
+Field Descriptions:
+
+systemName				A descriptive name for the system that is being monitored. Used in e-mails.
+
+senders					An array of sender objects.
+						At least one sender must be defined.
+sender					Metadata describing a sender.
+sender.frequency		The number of milliseconds at which the sender should send messages.
+						Default frequency is 1 minute.
+sender.senderConfig		The path of the configuration file that defines the sender.
+						There is no default, a value must be provided.
+sender.ipType			The IP type which the sender is using.
+						Valid values are "ipv4" and "ipv6".
+						Default value is "ipv4".
+sender.secure			Boolean value defining if the sender will be sending secure or non-secure messages.
+						Default value is non-secure.
+sender.messageType		The type of message being sent by the sender.
+						Valid values are "asd", "isd", and "vsd".
+						Default value is "vsd".
+sender.targetWarehouse	The warehouse to which the messages are going to be sent.
+						Valid values are "all", "sdw", "sdpc".
+						Default value is "all".
+
+monitorConfig						The definition for the monitoring logic.
+monitorConfig.warehouseConfig		The path to the warehouseConfig.json file that defines the connection to the Warehouse.
+									There is no default, a value must be provided.
+monitorConfig.subscriptions					An array of subscription objects.
+monitorConfig.subscription					Metadata describing a subscription.
+monitorConfig.subscription.subscription		The JSON defining the subscription.
+											There is no default, a value must be provided.
+monitorConfig.subscription.interval			The number of milliseconds to wait between successful request and attempted cancellation.
+											Default value is 40 seconds.
+monitorConfig.subscription.ipType			The IP type over which the subscription occurs.
+											Valid values are "ipv4" and "ipv6".
+											Default value is "ipv4".
+monitorConfig.subscription.secure			Boolean value defining if the subscription will be secure or non-secure.
+											Default value is non-secure.
+monitorConfig.queryFrequency		The number of milliseconds the monitor should check the warehouse for messages sent by defined senders.
+									Default value is 1 minute.
+monitorConfig.failureTolerance		How many times a message can fail to be detected before an alert is raised.
+									Default value is 3 failures.
+monitorConfig.alertEmails			An array of e-mails to which an alert will be sent when a message is failed to be detected.
+monitorConfig.recoveryEmails		An array of e-mails to which an announcement will be sent when a message that has failed has recovered.
+monitorConfig.heartbeat						The definition for the heartbeat of the monitor.
+monitorConfig.heartbeat.heartbeatEmails		An array of e-mails to which a heartbeat message will be sent to.
+monitorConfig.heartbeat.initialHeartbeat	The time of the first heartbeat.
+											Format is HH:mm, where HH is 24 hours(0-23).
+											Default initial heartbeat is 12:00(noon).
+monitorConfig.heartbeat.frequencyInHours 	The number of hours between the heartbeat emails being sent.
+											Default is 12 hours.
+
+uptimeConfig							Configuration defining parameters for recording the uptime of components to a local H2 DB.
+uptimeConfig.databasePath				Directory of where the local H2 DB will be started and run.
+uptimeConfig.databasePort				Port to connect to the H2 DB.
+										Default is 8161.
+uptimeConfig.updateIntervalInMinutes	Amount of minutes to wait for a change in Asset State to be reported. If no change is recorded
+										in this amount of time, the same Asset State last reported will be recorded again.
+										Default is 30 minutes.
+										
+uptimeConfig.reporter					Configuration defining the behavior of how reports are generated and sent.
+uptimeConfig.reporter.reportLocation			Local location where the ports will be generated and stored.
+uptimeConfig.reporter.reportEmails				An array of e-mails to which the report will be sent.

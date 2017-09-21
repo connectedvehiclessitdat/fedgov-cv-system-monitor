@@ -1,0 +1,29 @@
+DESCRIPTION:
+This is a Java-based Warehouse Client application for the Connected Vehicle Project.  This client is
+used to retrieve messages from the Connected Vehicle Warehouse via a query or subscription mechanism,
+and now deposit messages into the Warehouse via WebSockets.
+
+SOURCE CODE:
+File fedgov-cv-whtools-client-1.0.0-sources.jar contains bare bone source code for the client.
+Also, for convenience, a complete Eclipse Maven project fedgov-cv-whtools-client-1.0.0-project.zip is included as well.
+
+BUILDING:
+We recommend using provided Eclipse Maven project for building. 
+One jar file with all required dependencies is created along with a .zip
+file containing the jar file, configuration files, and start scripts. 
+
+USAGE:
+To run the application, unzip fedgov-cv-whtools-client-1.0.0-bin.zip to your desired location, modify the whconfig.json
+file for your setup, and run the start_wh_client.bat/sh script to start the application.
+
+CONFIGURATION:
+The config/whconfig.json contains the configuration information used by this application.  It is described in the
+docs/CONFIG_README file.  Requests sent from this application are read by default from files in the requests directory
+on file addition or modification.  Requests can be of type QUERY or SUBSCRIBE format.  Those formats are described in the 
+docs/QUERY_README and docs/SUBSCRIBE_README files.  Files placed in the configurable deposit directory are deposited into
+the Warehouse.  See docs/DEPOSIT_README for additional information.
+
+RESPONSE MESSAGE PROCESSING:
+The gov.usdot.cv.whtools.client.handler.ResponseHandler class processes messages received by this client
+from the warehouse.  It has the ability to log received messages to console and write them to disk.  This 
+class can be modified to additionally process each message as you see fit.

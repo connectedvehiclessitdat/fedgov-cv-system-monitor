@@ -1,0 +1,60 @@
+{
+   "source":{
+      "file": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/messages/IPv6_secure_vsd.uper",
+      "type":"UPER",
+      "delay":500
+   },
+   "destination":{
+      "host":"sdc6-2.connectedvcs.com",
+      "sendPort":46757,
+	  "recvPort":50044,
+	  "fromPort":50045
+   },
+   "other":{
+      "verbose":false
+   },
+   "dialog":{
+      "group": "279982080",
+      "type": "vehSitData",
+	  "custom":{
+		"ttl":1
+	  }
+   },
+   "request":{
+      "timeout":4000,
+      "attempts":3,
+      "ignore":false
+   },
+   "resend":{
+      "timeout":4000,
+      "attempts":3,
+      "delay":200,
+      "recvPort":50046,
+	  "fromPort":50047
+   },
+    "secure": {
+        "enable": true,
+        "psid": 12257,
+        "certs": [
+            {
+                "cert": {
+                    "name": "CA",
+                    "path": "@certificates/BB/root_ca.cert@"
+                }
+            },
+            {
+                "cert": {
+                    "name": "RA",
+                    "path": "@certificates/BB/root_ra.cert@"
+                }
+            },
+            {
+                "cert": {
+                    "name": "Self",
+                    "path": "@certificates/BB/SDW20161101.crt@",
+                    "key": "@certificates/DWH/DWH2016/SDW_decrypt_key.txt@"
+                }
+            }
+        ]
+    }
+}

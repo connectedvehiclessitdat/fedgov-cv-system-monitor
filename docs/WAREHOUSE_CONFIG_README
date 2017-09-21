@@ -1,0 +1,50 @@
+This application requires the JSON configuration file config/warehouse_config.json.  An example is given below
+with a description for each field.  Contact the Warehouse team if you have questions regarding the
+correct values for any of these fields.
+
+{
+    "warehouseURL": "wss://webapp.connectedvcs.com:8443/whtools23/websocket",
+
+    "casURL": "https://cas.connectedvcs.com/accounts/v1/tickets",
+    "casUserName": "testUser",
+    "casPassword": "abcd1234",
+    
+    "requestDir": "requests",
+    "responseDir": "responses",
+    
+    "logMessages": true,
+    "writeToDisk": true,
+    "binaryFiles": true,
+    
+    "systemDepositName": "SDW 2.3",
+    "encodeType": "HEX",
+    "depositFileDir": "deposits",
+    "depositDelay": 200
+}
+
+Field Descriptions:
+
+warehouseURL		The Warehouse URL for the WebSocket server hosted on the Connected Vehicle Warehouse.
+					The Warehouse uses WebSockets (https://www.websocket.org/) to deliver data to this client. 
+
+casURL				The CAS URL for the CAS server used by the Warehouse for user authentication (https://wiki.jasig.org/display/CAS/Home)
+casUserName			The userName for CAS authentication.
+casPassword			The password for CAS authentication.
+
+requestDir			The directory watched by this application for queries or subscription requests to execute.  New files added or files changed
+					in this directory are sent to the Warehouse.
+responseDir			The directory where messages received from the Warehouse are written to (if writeToDisk is true)
+
+logMessages			Set to true to log messages to the console.
+writeToDisk			Set to true to write messages to disk.
+binaryFiles			If false, messages are written as the selected hex, base64, full (json) format.  If true, the messages are converted to raw 
+					bytes and written as out binary .uper files.
+					
+systemDepositName	The name of the system you want to deposit messages into.  Currently only "SDC 2.3" and "SDW 2.3" are supported.
+encodeType			The encoding type of the messages to be placed in depositFileDir.  Valid types are "HEX", "Base64", and "UPER".  Messages that
+					are placed in the depositFileDir must match the encodeType specified or an error will be generated.  To switch encodeType, stop
+					the application, change the value for encodeType and restart the application.  For "HEX", and "Base64" types, the files placed in
+					the depositFileDir may contain multiple messages (one message per line).  The "UPER" type requires a file per message.
+depositFileDir		The directory watched for messages to be deposited.
+depositDelay		A delay in milliseconds that is applied between sending each message in a multi-message file or between sending individual UPER files.
+ 

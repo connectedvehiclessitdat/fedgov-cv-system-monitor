@@ -1,0 +1,39 @@
+This application requires a JSON configuration file config/W_X_Y_Z_sender_config_file.json for each message
+to be sent by a sender.  An example is given below.  For full details and descriptions of available fields,
+please see the Sender Overview document.
+
+{
+   "source":{
+      "file": "/path/to/IPv4_non-secure_asd.uper",
+      "type":"UPER",
+	  "delay":500
+   },
+   "destination":{
+      "host":"104.239.163.110",
+      "sendPort":46755,
+	  "recvPort":46753,
+	  "fromPort":46754
+   },
+   "other":{
+      "verbose":false
+   },
+   "dialog":{
+      "group": "279977984",
+      "type": "advSitDataDep",
+	  "custom":{
+		"ttl":1
+	  }
+   },
+   "request":{
+      "timeout":4000,
+      "attempts":3,
+      "ignore":false
+   },
+   "resend":{
+      "timeout":4000,
+      "attempts":3,
+      "delay":200,
+      "recvPort":46755,
+	  "fromPort":46756
+   }
+}

@@ -1,0 +1,19 @@
+{
+    "warehouseURL": "wss://webapp2.connectedvcs.com:8443/whtools23/websocket",
+
+    "casURL": "https://cas.connectedvcs.com/accounts/v1/tickets",
+    "casUserName": "",
+    "casPassword": "",
+    
+    "requestDir": "requests",
+    "responseDir": "responses",
+    
+    "logMessages": false,
+    "writeToDisk": false,
+    "binaryFiles": false,
+    
+    "systemDepositName": "SDW 2.3",
+    "encodeType": "uper",
+    "depositFileDir": "deposits",
+    "depositDelay": 200 
+}

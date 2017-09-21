@@ -1,0 +1,35 @@
+{
+   "source":{
+      "file": "%PATH_TO_CV-SYSTEM-MONITOR-DIR%/config/messages/IPv4_non-secure_vsd.uper",
+      "type":"UPER",
+      "delay":500
+   },
+   "destination":{
+      "host":"sdc2.connectedvcs.com",
+      "sendPort":46753,
+	  "recvPort":50008,
+	  "fromPort":50009
+   },
+   "other":{
+      "verbose":false
+   },
+   "dialog":{
+      "group": "279977984",
+      "type": "vehSitData",
+	  "custom":{
+		"ttl":1
+	  }
+   },
+   "request":{
+      "timeout":4000,
+      "attempts":3,
+      "ignore":false
+   },
+   "resend":{
+      "timeout":4000,
+      "attempts":3,
+      "delay":200,
+      "recvPort":50010,
+	  "fromPort":50011
+   }
+}
