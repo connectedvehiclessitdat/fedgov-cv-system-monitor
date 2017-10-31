@@ -30,8 +30,8 @@ import gov.usdot.cv.system.monitor.util.DateUtil;
 public class AssetReporter {
 
 	private static Logger logger = Logger.getLogger(AssetReporter.class);
-	
-	private final DecimalFormat PERCENTAGE_FORMAT = new DecimalFormat("##0%");
+
+	private final DecimalFormat PERCENTAGE_FORMAT = new DecimalFormat("##0.#####%");
 
 	private Reporter reporter;
 	private ConnectionManager connectionManager;
